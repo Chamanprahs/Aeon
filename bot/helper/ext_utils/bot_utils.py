@@ -195,7 +195,7 @@ def source(self):
 
 
 def get_readable_message():
-    msg = '<b>Powered by @Franited</b>\n\n'
+    msg = '<b>Powered by Aeon</b>\n\n'
     button = None
     tasks = len(download_dict)
     currentTime = get_readable_time(time() - botStartTime)
