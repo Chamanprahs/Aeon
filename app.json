@@ -1,7 +1,7 @@
 {
   "name": "Leech Bot",
   "description": "A Telegram bot to leech content from provided links.",
-  "repository": "https://github.com/chamanprahs/Aeon",
+  "repository": "https://github.com/5hojib/Aeon",
   "keywords": ["telegram", "bot", "leech"],
   "env": {
     "BOT_TOKEN": {
