@@ -27,8 +27,8 @@ class _BotCommands:
         self.ShellCommand = f'shell{i}'
         self.EvalCommand = f'eval{i}'
         self.ExecCommand = f'exec{i}'
-        self.BotSetCommand = f'botsettings{i}'
-        self.UserSetCommand = f'settings{i}'
+        self.BotSetCommand = [f'botsettings{i}', f'bs{i}']
+        self.UserSetCommand = [f'settings{i}', f'us{i}']
         self.SpeedCommand = f'speedtest{i}'
         self.AddImageCommand = f'addimg{i}'
         self.ImagesCommand = f'images{i}'
