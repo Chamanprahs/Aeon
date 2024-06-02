@@ -230,7 +230,7 @@ def get_readable_message():
         else:
             msg += f"</p>Size: {download.size()}"
         msg += f"\nElapsed: {get_readable_time(time() - download.message.date.timestamp())}</blockquote>"
-        msg += f"\n<q>/stop_{download.gid()[:8]}</q>\n\n"
+        msg += f"\n<p>/stop_{download.gid()[:8]}</p>\n\n"
     if len(msg) == 0:
         return None, None
     dl_speed = 0
