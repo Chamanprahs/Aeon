@@ -64,6 +64,7 @@ command_descriptions = {
     'BotSetCommand': '- [ADMIN] Open Bot settings',
     'LogCommand': '- [ADMIN] View log',
     'RestartCommand': '- [ADMIN] Restart the bot'
+    'QBMirror': '- You can mirror torrent'
 }
 
 
