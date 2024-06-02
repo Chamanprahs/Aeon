@@ -3,7 +3,7 @@
 
 Click the button below to deploy this bot to Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/chamanprahs/Aeon)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/5hojib/Aeon)
 
 
 ***
