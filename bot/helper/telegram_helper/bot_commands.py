@@ -13,7 +13,7 @@ class _BotCommands:
         self.StopAllCommand = [f'stopall{i}', 'stopallbot']
         self.ListCommand = f'list{i}'
         self.SearchCommand = f'search{i}'
-        self.StatusCommand = [f'status{i}', 'statusall']
+        self.StatusCommand = [f'status{i}', 'statusall', f's{i}']
         self.UsersCommand = f'users{i}'
         self.AuthorizeCommand = f'authorize{i}'
         self.UnAuthorizeCommand = f'unauthorize{i}'
