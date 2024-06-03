@@ -184,7 +184,7 @@ def get_progress_bar_string(pct):
     if isinstance(pct, str):
         pct = float(pct.strip('%'))
     p = min(max(pct, 0), 100)
-    cFull = int((p // 10)
+    cFull = int((p +5)// 10)
     cPart = int(p % 10-1)
     
     partial_blocks = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌚']
