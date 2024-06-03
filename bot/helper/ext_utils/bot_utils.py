@@ -180,13 +180,30 @@ async def fetch_user_tds(user_id, force=False):
     return {}
 
 
-def progress_bar(pct):
+def get_progress_bar_string(pct):
+    # Convert percentage to float if it is in string format
     if isinstance(pct, str):
         pct = float(pct.strip('%'))
+    
+    # Clamp percentage between 0 and 100
     p = min(max(pct, 0), 100)
-    cFull = int((p + 5)// 10)
-    p_str = '🤖' * cFull
-    p_str += '👽' * (10 - cFull)
+    
+    # Calculate the number of full blocks
+    cFull = int(p // 10)
+    # Calculate the partial block index (0 to 9)
+    cPart = int(p % 10)
+    
+    # Emoji representations for partial progress
+    partial_blocks = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌚']
+    
+    # Create the progress bar string
+    p_str = '🌚' * cFull
+    if cPart > 0:
+        p_str += partial_blocks[cPart - 1]
+    
+    # Fill the rest with empty blocks
+    p_str += '🌝' * (10 - len(p_str))
+    
     return p_str
 
 
