@@ -186,12 +186,13 @@ def progress_bar(pct):
     p = min(max(pct, 0), 100)
     cFull = int(p // 10)
     cPart = int(p % 10 // 2)
-    p_str = '🌕' * cFull
+    p_str = '🌑' * cFull
     if cPart > 0:
-        partial_moons = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘']
+        partial_moons = ['🌘', '🌗', '🌖', '🌕', '🌔', '🌓', '🌒', '🌑']
         p_str += partial_moons[cPart - 1]
-    p_str += '🌑' * (10 - cFull - 1 - (cPart > 0))
+    p_str += '🌕' * (10 - cFull - 1 - (cPart > 0))
     return p_str
+
 
 
 
