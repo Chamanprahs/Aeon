@@ -19,7 +19,7 @@ class _BotCommands:
         self.UnAuthorizeCommand = f'unauthorize{i}'
         self.AddSudoCommand = f'addsudo{i}'
         self.RmSudoCommand = f'rmsudo{i}'
-        self.PingCommand = 'ping'
+        self.PingCommand = ['ping',f'p{i}']
         self.RestartCommand = [f'restart{i}', 'restartall', f'r{i}']
         self.StatsCommand = [f'stats{i}', 'statsall']
         self.HelpCommand = f'help{i}'
