@@ -222,7 +222,7 @@ def get_readable_message():
             msg += f"</p><code>{progress_bar(download.progress())}</code> {download.progress()}"
             msg += f"\n{download.processed_bytes()} of {download.size()}"
             msg += f"\nSpeed: {download.speed()}"
-            msg += f'\nEstimated: {download.eta()}'
+            msg += f'\n🤠Estimated: {download.eta()}'
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\nSeeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
