@@ -220,9 +220,9 @@ def get_readable_message():
         msg += f"by {source(download)}\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_PROCESSING]:
             msg += f"</p><code>{progress_bar(download.progress())}</code> {download.progress()}"
-            msg += f"\n{download.processed_bytes()} of {download.size()}"
-            msg += f"\nSpeed: {download.speed()}"
-            msg += f'\n🤠Estimated: {download.eta()}'
+            msg += f"\n🎃{download.processed_bytes()} of {download.size()}"
+            msg += f"\n🏎Speed: {download.speed()}"
+            msg += f'\n⏳Estimated: {download.eta()}'
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\nSeeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
@@ -230,14 +230,14 @@ def get_readable_message():
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
             msg += f"</p>Size: {download.size()}"
-            msg += f"\nSpeed: {download.upload_speed()}"
-            msg += f"\nUploaded: {download.uploaded_bytes()}"
+            msg += f"\n🩲Speed: {download.upload_speed()}"
+            msg += f"\n📤Uploaded: {download.uploaded_bytes()}"
             msg += f"\nRatio: {download.ratio()}"
-            msg += f"\nTime: {download.seeding_time()}"
+            msg += f"\n⏰Time: {download.seeding_time()}"
         else:
             msg += f"</p>Size: {download.size()}"
-        msg += f"\nElapsed: {get_readable_time(time() - download.message.date.timestamp())}</p>"
-        msg += f"\n<q>/stop_{download.gid()[:8]}</q>\n\n"
+        msg += f"\n🕓Elapsed: {get_readable_time(time() - download.message.date.timestamp())}</p>"
+        msg += f"\n❌ABORT/stop_{download.gid()[:8]}</q>\n\n"
     if len(msg) == 0:
         return None, None
     dl_speed = 0
