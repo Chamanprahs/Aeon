@@ -34,6 +34,5 @@ class _BotCommands:
         self.ImagesCommand = f'images{i}'
         self.MediaInfoCommand = f'mediainfo{i}'
         self.BroadcastCommand = [f'broadcast{i}', 'broadcastall']
-        self.InstaCommand= f'il{i}'
 
 BotCommands = _BotCommands()
