@@ -31,6 +31,11 @@ from bot.helper.ext_utils.telegraph_helper import telegraph
 from bot.helper.ext_utils.shorteners import short_url
 from bot.helper.aeon_utils.tinyfy import tinyfy
 
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
+import requests
+import re
+
 
 if config_dict.get('GDRIVE_ID'):
     commands = [
@@ -43,7 +48,7 @@ else:
     commands = [
         'LeechCommand', 'YtdlLeechCommand', 'MediaInfoCommand', 'SearchCommand', 
         'UserSetCommand', 'StatusCommand', 'StatsCommand', 'StopAllCommand', 
-        'HelpCommand', 'BotSetCommand', 'LogCommand', 'RestartCommand'
+        'HelpCommand', 'BotSetCommand', 'LogCommand', 'RestartCommand','Instacommand'
     ]
 
 command_descriptions = {
@@ -64,6 +69,7 @@ command_descriptions = {
     'BotSetCommand': '- [ADMIN] Open Bot settings',
     'LogCommand': '- [ADMIN] View log',
     'RestartCommand': '- [ADMIN] Restart the bot'
+    'InstaCommand' : '-Download instagram media'
 }
 
 
@@ -490,3 +496,45 @@ commands = [BotCommand(getattr(BotCommands, cmd)[0] if isinstance(getattr(BotCom
 async def set_commands(bot):
     if config_dict['SET_COMMANDS']:
         await bot.set_bot_commands(commands)
+
+
+TOKEN =BOT_TOKEN
+
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Hello! Use /il <Instagram URL> to download media.')
+
+def download_instagram_media(url: str) -> str:
+    # This function will contain the logic to download media from Instagram
+    pass
+
+def instagram_link(update: Update, context: CallbackContext) -> None:
+    if len(context.args) != 1:
+        update.message.reply_text('Please provide a valid Instagram URL.')
+        return
+    
+    url = context.args[0]
+    if not re.match(r'https?://(www\.)?instagram\.com/', url):
+        update.message.reply_text('Please provide a valid Instagram URL.')
+        return
+
+    update.message.reply_text('Downloading media...')
+    media_url = download_instagram_media(url)
+    
+    if media_url:
+        context.bot.send_message(chat_id=update.effective_chat.id, text=media_url)
+    else:
+        update.message.reply_text('Failed to download media.')
+
+def main() -> None:
+    updater = Updater(TOKEN)
+    dispatcher = updater.dispatcher
+    
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("il", instagram_link))
+
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
+
