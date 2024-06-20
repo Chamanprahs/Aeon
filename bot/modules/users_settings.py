@@ -174,19 +174,7 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
     return text, button
 
 
-def add_user_settings_handlers(bot: Client):
-    
-    @bot.on_message(filters.command(["set_session"]))
-    async def set_session(client, message):
-        string_session = message.text.split(' ', 1)[1]
-        user_id = message.from_user.id
-        save_string_session(user_id, string_session)
-        await message.reply("String session saved successfully!")
 
-    @bot.on_message(filters.command(["usersetting"]))
-    async def user_settings(client, message):
-        settings_text = "User settings:\n/set_session - Set your string session"
-        await message.reply(settings_text)
 
 
 
