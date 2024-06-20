@@ -10,6 +10,8 @@ from functools import partial
 from html import escape
 from io import BytesIO
 from asyncio import sleep
+from pyrogram import Client, Filters
+from database import save_string_session, get_string_session
 
 from bot import OWNER_ID, bot, user_data, config_dict, DATABASE_URL, IS_PREMIUM_USER, MAX_SPLIT_SIZE
 from bot.helper.telegram_helper.message_utils import sendMessage, sendCustomMsg, editMessage, deleteMessage, sendFile, chat_info, user_info, five_minute_del
