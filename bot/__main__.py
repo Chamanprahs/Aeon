@@ -9,10 +9,6 @@ from base64 import b64decode
 from quoters import Quote
 from html import escape
 from cloudscraper import create_scraper
-from telethon.sync import TelegramClient
-from telethon.sessions import StringSession
-from pyrogram import Client
-from user_setting import add_user_settings_handlers
 
 from requests import get as rget
 from pytz import timezone
