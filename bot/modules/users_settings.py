@@ -174,29 +174,6 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
     return text, button
 
 
-@app.on_message(filters.command("settings") & filters.private)
-async def get_user_settings(client, message):
-    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("Set String Session", callback_data="set_session")]])
-    await message.reply("Settings", reply_markup=keyboard)
-
-@app.on_callback_query(filters.regex("^set_session$"))
-async def set_session_callback(client, callback_query):
-    user_id = callback_query.from_user.id
-    await callback_query.answer()
-    await callback_query.message.reply("Send your string session now.")
-
-@app.on_message(filters.private)
-async def save_session(client, message):
-    user_id = message.from_user.id
-    if user_id not in user_sessions:
-        user_sessions[user_id] = message.text
-        await message.reply("String session saved successfully!")
-        await deleteMessage
-    else:
-        await message.reply("You have already set your string session.")
-app.run()
-
-
 async def update_user_settings(query, key=None, edit_type=None, edit_mode=None, msg=None):
     msg, button = await get_user_settings(query.from_user, key, edit_type, edit_mode)
     user_id = query.from_user.id
