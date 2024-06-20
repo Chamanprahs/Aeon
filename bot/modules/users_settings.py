@@ -177,7 +177,7 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
 @app.on_message(filters.command("settings") & filters.private)
 async def user_settings(client, message):
     keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("Set String Session", callback_data="set_session")]])
-    await message.reply("User Settings", reply_markup=keyboard)
+    await message.reply("Settings", reply_markup=keyboard)
 
 @app.on_callback_query(filters.regex("^set_session$"))
 async def set_session_callback(client, callback_query):
