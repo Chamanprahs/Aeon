@@ -19,7 +19,6 @@ google-auth-oauthlib
 gunicorn
 git+https://github.com/zevtyardt/lk21.git
 httpx
-instaloader
 langcodes[data]
 lxml
 motor
@@ -38,6 +37,8 @@ qbittorrent-api
 requests
 speedtest-cli
 telegraph
+telethon
+sqlite3
 tenacity
 tgcrypto
 uvloop
