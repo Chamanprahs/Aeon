@@ -37,7 +37,7 @@ from .helper.mirror_leech_utils.gdrive_utils import count, delete, list, clone
 if config_dict['GDRIVE_ID']:
     help_string = f'''<b>NOTE: Try each command without any arguments to see more details.</b>
 
-<blockquote expandable>/{BotCommands.MirrorCommand[0]} - Start mirroring to Google Drive.
+</p>/{BotCommands.MirrorCommand[0]} - Start mirroring to Google Drive.
 /{BotCommands.LeechCommand[0]} - Start leeching to Telegram.
 /{BotCommands.YtdlCommand[0]} - Mirror links supported by yt-dlp.
 /{BotCommands.YtdlLeechCommand[0]} - Leech links supported by yt-dlp.
