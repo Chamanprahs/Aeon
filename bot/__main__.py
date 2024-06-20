@@ -221,21 +221,6 @@ async def AeonCallback(_, query):
         await query.answer()
         await deleteMessage(message)
 
-@new_task
-async def leech_restricted_content(user_id, target_channel):
-    string_session = get_string_session(user_id)
-    if not string_session:
-        return "No string session found for user."
-    
-    async with TelegramClient(StringSession(string_session), api_id, api_hash) as client:
-        await client.start()
-        messages = await client.get_messages(target_channel, limit=10)
-        for message in messages:
-            print(message.text)
-
-if __name__ == "__main__":
-    bot.run()
-
 
 @new_task
 async def log(_, message):
