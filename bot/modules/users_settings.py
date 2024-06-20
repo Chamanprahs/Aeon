@@ -194,7 +194,7 @@ async def save_session(client, message):
         await deleteMessage
     else:
         await message.reply("You have already set your string session.")
-app.run
+app.run()
 
 
 async def update_user_settings(query, key=None, edit_type=None, edit_mode=None, msg=None):
