@@ -9,6 +9,10 @@ from base64 import b64decode
 from quoters import Quote
 from html import escape
 from cloudscraper import create_scraper
+from telethon.sync import TelegramClient
+from telethon.sessions import StringSession
+from pyrogram import Client
+from user_setting import add_user_settings_handlers
 
 from requests import get as rget
 from pytz import timezone
@@ -220,6 +224,21 @@ async def AeonCallback(_, query):
     else:
         await query.answer()
         await deleteMessage(message)
+
+@new_task
+async def leech_restricted_content(user_id, target_channel):
+    string_session = get_string_session(user_id)
+    if not string_session:
+        return "No string session found for user."
+    
+    async with TelegramClient(StringSession(string_session), api_id, api_hash) as client:
+        await client.start()
+        messages = await client.get_messages(target_channel, limit=10)
+        for message in messages:
+            print(message.text)
+
+if __name__ == "__main__":
+    bot.run()
 
 
 @new_task
