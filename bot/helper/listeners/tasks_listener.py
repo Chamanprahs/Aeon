@@ -397,7 +397,7 @@ class MirrorLeechListener:
             if mime_type == "Folder":
                 msg += f'<b>• Total files: </b>{files}\n'
             if link:
-                buttons.ubutton('Cloud link', link)
+                buttons.ubutton('Cloud link【Gdrive】', link)
                 INDEX_URL = self.index_link if self.drive_id else config_dict['INDEX_URL']
                 if not rclonePath:
                     if INDEX_URL:
@@ -414,7 +414,7 @@ class MirrorLeechListener:
                 buttons = extra_btns(buttons)
                 button = buttons.build_menu(2)
             msg += f'<b>• Uploaded by: </b>{self.tag}\n'
-            msg += f'<b>• User ID: </b><code>{self.message.from_user.id}</code></blockquote>\n\n'
+            msg += f'<b>• User ID: </b><code>{self.message.from_user.id}</code></p>\n\n'
 
             if config_dict['MIRROR_LOG_ID']:
                 log_msg = list((await sendMultiMessage(config_dict['MIRROR_LOG_ID'], msg, button)).values())[0]
