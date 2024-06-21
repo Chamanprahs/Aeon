@@ -342,7 +342,7 @@ class MirrorLeechListener:
         name, _ = await process_file(name, user_id, isMirror=not self.isLeech)
         user_dict = user_data.get(user_id, {})
         msg = f'{escape(name)}\n\n'
-        msg += f'<blockquote><b>• Size: </b>{get_readable_file_size(size)}\n'
+        msg += f'<p><b>• Size: </b>{get_readable_file_size(size)}\n'
         msg += f'<b>• Elapsed: </b>{get_readable_time(time() - self.message.date.timestamp())}\n'
         LOGGER.info(f'Task Done: {name}')
         buttons = ButtonMaker()
@@ -355,7 +355,7 @@ class MirrorLeechListener:
             if mime_type != 0:
                 msg += f'<b>• Corrupted files: </b>{mime_type}\n'
             msg += f'<b>• Uploaded by: </b>{self.tag}\n'
-            msg += f'<b>• User ID: </b><code>{self.message.from_user.id}</code></blockquote>\n\n'
+            msg += f'<b>• User ID: </b><code>{self.message.from_user.id}</code></p>\n\n'
             if not files:
                 if self.isPrivate:
                     msg += '<b>Files have not been sent for an unspecified reason</b>'
