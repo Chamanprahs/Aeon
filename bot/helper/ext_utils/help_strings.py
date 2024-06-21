@@ -27,7 +27,7 @@ MIRROR_HELP_MESSAGE = """
 <code>/{cmd} options</code>
 
 <b>OPTIONS:</b>
-<blockquote expandable><b>-n new name:</b> Rename the file or folder.
+<p><b>-n new name:</b> Rename the file or folder.
 <b>-atc attachment url:</b> Custom attachment for each mkv.(raw only)
 <b>-t thumbnail url:</b> Custom thumbnail for each leech.(raw or tg image url)
 <b>-ss value:</b> Generate ss for leech video, max 10 for each leach.
@@ -44,7 +44,7 @@ MIRROR_HELP_MESSAGE = """
 <b>-b:</b> Perform bulk download by replying to a text message or file with multiple links separated with new line.
 <b>-j:</b> Join split files together before extracting or zipping.
 <b>-rcf:</b> Set Rclone flags for the command.
-<b>main:dump/ubuntu.iso</b> or <b>rcl:</b> Treat a path as an rclone download.</blockquote>
+<b>main:dump/ubuntu.iso</b> or <b>rcl:</b> Treat a path as an rclone download.</p>
 """
 
 CLONE_HELP_MESSAGE = """
