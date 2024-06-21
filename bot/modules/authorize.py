@@ -17,21 +17,21 @@ async def change_authorization(message, is_authorize):
     else:
         id_ = message.chat.id
     if is_authorize:
-        success_message = 'Authorized'
+        success_message = 'Authorized Hogya bhai'
         if id_ in user_data and user_data[id_].get('is_auth'):
-            success_message = 'Already authorized!'
+            success_message = 'Already authorized hai bro!'
         else:
             update_user_ldata(id_, 'is_auth', True)
             if DATABASE_URL:
                 await DbManager().update_user_data(id_)
     else:
-        success_message = 'Unauthorized'
+        success_message = 'Unauthorized hogya bro'
         if id_ not in user_data or user_data[id_].get('is_auth'):
             update_user_ldata(id_, 'is_auth', False)
             if DATABASE_URL:
                 await DbManager().update_user_data(id_)
         else:
-            success_message = 'Already unauthorized!'
+            success_message = 'Already unauthorized huawa hai bro!'
     await sendMessage(message, success_message)
 
 
