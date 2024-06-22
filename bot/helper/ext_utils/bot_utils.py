@@ -223,7 +223,8 @@ def get_readable_message():
             msg += f"\n🎃{download.processed_bytes()} of {download.size()}"
             msg += f"\n🏎Speed: {download.speed()}"
             msg += f'\n⏳Estimated: {download.eta()}'
-            msg += f'\n 🧭Pyaar me mat dubo'
+            msg += f'<b><blockquote>🧭Pyaar me mat dubo'</blockquote></b>'
+            
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\n🌱Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
