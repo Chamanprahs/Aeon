@@ -223,7 +223,6 @@ def get_readable_message():
             msg += f"\n{download.processed_bytes()} of {download.size()}"
             msg += f"\n🏎Speed: {download.speed()}"
             msg += f'\n⏳Estimated: {download.eta()}'
-            msg += f'<b><blockquote>🧭Pyaar me mat dubo</blockquote></b>'
             
             if hasattr(download, 'seeders_num'):
                 try:
@@ -263,6 +262,7 @@ def get_readable_message():
     msg += f"\n<b>💾  Free disk space</b>: {get_readable_file_size(disk_usage('/usr/src/app/downloads/').free)}"
     msg += f"\n<b>📤 Uploading speed</b>: {get_readable_file_size(up_speed)}/s"
     msg += f"\n<b>📥 Downloading speed</b>: {get_readable_file_size(dl_speed)}/s"
+    msg += f'<b><blockquote>💔🥺Pyaar me mat dubo</blockquote></b>'
     return msg, button
 
 
