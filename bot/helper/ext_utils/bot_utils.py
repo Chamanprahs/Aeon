@@ -220,10 +220,10 @@ def get_readable_message():
         msg += f"by {source(download)}\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_PROCESSING]:
             msg += f"</p><code>👉 {progress_bar(download.progress())}</code> {download.progress()}"
-            msg += f"\n🎃{download.processed_bytes()} of {download.size()}"
+            msg += f"\n{download.processed_bytes()} of {download.size()}"
             msg += f"\n🏎Speed: {download.speed()}"
             msg += f'\n⏳Estimated: {download.eta()}'
-            msg += f'<b><blockquote>🧭Pyaar me mat dubo'</blockquote></b>'
+            msg += f'<b><blockquote>🧭Pyaar me mat dubo</blockquote></b>'
             
             if hasattr(download, 'seeders_num'):
                 try:
