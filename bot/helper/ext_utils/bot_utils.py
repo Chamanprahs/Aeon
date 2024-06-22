@@ -223,8 +223,7 @@ def get_readable_message():
             msg += f"\n🎃{download.processed_bytes()} of {download.size()}"
             msg += f"\n🏎Speed: {download.speed()}"
             msg += f'\n⏳Estimated: {download.eta()}'
-            msg += f'\n🧭life lesson:'
-            msg += f'{quote}'
+            msg += f"<b>🧭life lesson: {quote} </b>"
             
             if hasattr(download, 'seeders_num'):
                 try:
