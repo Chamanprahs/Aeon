@@ -23,7 +23,7 @@ async def mirror_status(_, message):
         msg = f"<b><blockquote>{quote}</blockquote></b>\n\n"
         msg += 'No downloads are currently in progress.\n'
         msg += f"\n<b>• Bot uptime</b>: {currentTime}"
-        msg += f"\n<b>• Free disk space</b>: {free}"
+        msg += f"\n<b>• Free disk space</b>: {free}\n\n"
         msg += f"\n<code> pyar me mat dubo bhaiyo✅</code>\n"
 
         reply_message = await sendMessage(message, msg)
