@@ -240,11 +240,12 @@ async def bot_help(client, message):
 
 
 async def restart_notification():
+    now=datetime.now(timezone(config_dict['TIMEZONE']))
     if await aiopath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
         try:
-            await bot.edit_message_text(chat_id=chat_id, message_id=msg_id, text='Restarted Successfully!')
+            await bot.edit_message_text(chat_id=chat_id, message_id=msg_id, text='Restarted Successfully!😁')
         except:
             pass
         await aioremove(".restartmsg")
