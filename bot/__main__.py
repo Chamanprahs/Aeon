@@ -240,7 +240,6 @@ async def bot_help(client, message):
 
 
 async def restart_notification():
-    now=datetime.now(timezone(config_dict['TIMEZONE']))
     if await aiopath.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
