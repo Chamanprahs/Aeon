@@ -193,9 +193,23 @@ def progress_bar(pct):
     p_str += '🌑' * (10 - cFull - 1 - (cPart > 0))
     return p_str
 
-
-
-
+class EngineStatus:
+    def __init__(self):
+        if not (version_cache := bot_cache.get('eng_versions')):
+            get_all_versions()
+            version_cache = bot_cache.get('eng_versions')
+        self.STATUS_ARIA = f"Aria2 v{version_cache['aria']}"
+        self.STATUS_AIOHTTP = f"AioHttp {version_cache['aiohttp']}"
+        self.STATUS_GD = f"Google-API v{version_cache['gapi']}"
+        self.STATUS_MEGA = f"MegaSDK v{version_cache['mega']}"
+        self.STATUS_QB = f"qBit {version_cache['qbit']}"
+        self.STATUS_TG = f"PyroMulti v{version_cache['pyro']}"
+        self.STATUS_YT = f"yt-dlp v{version_cache['ytdlp']}"
+        self.STATUS_EXT = "pExtract v2"
+        self.STATUS_SPLIT_MERGE = f"ffmpeg v{version_cache['ffmpeg']}"
+        self.STATUS_ZIP = f"p7zip v{version_cache['p7zip']}"
+        self.STATUS_QUEUE = "Sleep v0"
+        self.STATUS_RCLONE = f"RClone {version_cache['rclone']}"
 
 
 def source(self):
@@ -237,7 +251,8 @@ def get_readable_message():
             msg += f"\n⏰Time: {download.seeding_time()}"
         else:
             msg += f"</p>Size: {download.size()}"
-        msg += f"\n😎User {download.message.from_user.mention()}"
+        msg += f"\n😎User: {download.message.from_user.mention()}"
+        msg += f"\n 🛠️Engine: {download.eng()}"
         msg += f"\n🕓Elapsed: {get_readable_time(time() - download.message.date.timestamp())}</p>"
         msg += f"\n❌ABORT: /stop_{download.gid()[:8]}</q>\n"
         msg += f"\n×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×\n" 
