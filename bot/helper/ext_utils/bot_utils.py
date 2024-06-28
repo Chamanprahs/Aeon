@@ -233,7 +233,6 @@ def get_readable_message():
         else:
             msg += f"</p>Size: {download.size()}"
         msg += f"\n😎User: {download.message.from_user.mention()}"
-        msg += f"\n 🛠️Engine: {download.engine()}"
         msg += f"\n🕓Elapsed: {get_readable_time(time() - download.message.date.timestamp())}</p>"
         msg += f"\n❌ABORT: /stop_{download.gid()[:8]}</q>\n"
         msg += f"\n×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×-×\n" 
